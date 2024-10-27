@@ -37,3 +37,8 @@ function getHumanChoice() {
     //Return human choice
     return choice;
 }
+
+//Declare computerScore variable
+let computerScore = 0;
+//Declare humanScore variable
+let humanScore = 0;
