@@ -1,6 +1,3 @@
-console.log("Hello world");
-console.log(getComputerChoice());
-console.log(getHumanChoice());
 //create a function to get computer choice
 function getComputerChoice() {
     //Use Math.random within the function to choose the return randomly
@@ -42,3 +39,31 @@ function getHumanChoice() {
 let computerScore = 0;
 //Declare humanScore variable
 let humanScore = 0;
+
+//write the logic to play a single round
+//create a function that takes two arguments which are the computer and the human choices adn declare a winner
+function playRound(a,b) {
+    console.log(a);
+    console.log(b);
+    //use conditional to determine the winner in any give set of choices
+    //represent round winner for each possibility and log it to the console
+    if (a == b) {
+        console.log("it is a draw");
+    } else if ((a == "Rock" && b == "Scissors") || (a == "Paper" && b == "Rock") || (a == "Scissors" && b == "Paper")){
+        console.log("Computer Won");
+        computerScore += 1;
+        console.log(computerScore);
+    } else {
+        console.log("You Won");
+        humanScore += 1;
+        console.log(humanScore);
+    }
+}
+
+//Declare variable to storage computer choice through the function getComputerChoice
+let cChoice = getComputerChoice();
+//Declare variable to storage human choice through the function getHumanChoice
+let hChoice = getHumanChoice();
+//Declare a variable to storage the result of calling the playRound function
+let pround = playRound(cChoice,hChoice);
+console.log(pround);
