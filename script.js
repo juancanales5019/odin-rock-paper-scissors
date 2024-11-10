@@ -1,95 +1,51 @@
-//create a function to get computer choice
-function getComputerChoice() {
-    //Use Math.random within the function to choose the return randomly
-    //Generate a random number between 0 and 1 to represent the three different computer options
-    let number = Math.floor(Math.random()*3);
-    //create a variable to store the string representation of computer choice.
-    let choice = "";
-    //use conditionals to assign a text value to a given number between 0 and 1.
-    if (number == 0) {
-        choice = "Rock";
-    } else if (number == 1) {
-        choice = "Paper";
-    } else {
-        choice = "Scissors";
-    }
-    //the function has to return: "Rock", "Paper" or Scissors
-    return choice;
+let computerScore = document.getElementById("computer-score");
+let currentMatch = document.getElementById("match");
+let playerScore = document.getElementById("player-score");
+let computerChoice = document.getElementById("computer-choice");
+let playerChoice = document.getElementById("player-choice");
+let computer = "";
+let user = "";
+let computerSc = 0;
+let playerSc = 0;
+//Get user choice
+function userChoice(button) {
+    playerChoice.innerText = button;
+    //display computer choice at the same time user make a choice
+    selectComputerChoice();
+    user = button;
+    console.log(user);
+    //compare choices at the same time user make a choice by clicking
+    compareChoices();
 }
-//Create a function to getHumanChoice
-function getHumanChoice() {
-    //create a variable to storage human choice
-    let choice = "";
-    //get Human choice using a prompt
-    //to simplify things human will choose 1 2 or 3
-    let number = parseInt(prompt("Choose 1 for Rock; 2 for Paper and 3 for Scissors"));
-    //convert human numeric choice into string: Rock Paper or Scissors
-    if (number == 1) {
-        choice = "Rock";
-    } else if (number == 2) {
-        choice = "Paper";
-    } else {
-        choice = "Scissors";
-    }
-    //Return human choice
-    return choice;
+//get computer choice randomly
+function selectComputerChoice() {
+    let list = ["Rock","Paper","Scissors"];
+    let choice = list[Math.floor(Math.random() * list.length)]
+    computerChoice.innerText = choice;
+    computer = choice;
+    console.log(computer);
 }
-
-//Declare computerScore variable
-let computerScore = 0;
-//Declare humanScore variable
-let humanScore = 0;
-let draws = 0;
-
-//Create a new function named playGame
-function playGame(n) {
-    //call the playRoud function up to n number
-    for (let index = 1; index <= n; index++) {
-        //write the logic to play a single round
-        //create a function that takes two arguments which are the computer and the human choices adn declare a winner
-        function playRound(a,b) {
-             //console.log(a);
-             //console.log(b);
-            //use conditional to determine the winner in any give set of choices
-            //represent round winner for each possibility and log it to the console
-            if (a == b) {
-                console.log("it is a draw");
-                draws +=1;
-            } else if ((a == "Rock" && b == "Scissors") || (a == "Paper" && b == "Rock") || (a == "Scissors" && b == "Paper")){
-                console.log("Computer Won");
-                computerScore += 1;
-            } else {
-                console.log("You Won");
-                humanScore += 1;
-
-            }
-        }
-        //Declare variable to storage computer choice through the function getComputerChoice
-        let cChoice = getComputerChoice();
-        //Declare variable to storage human choice through the function getHumanChoice
-        let hChoice = getHumanChoice();
-        //Declare a variable to storage the result of calling the playRound function
-        let pround = playRound(cChoice,hChoice);
-        //console.log(pround);
-    }
-    if (humanScore > computerScore) {
-        console.log("Human won")
-        console.log(`Computer final Score: ${computerScore}`);
-        console.log(`Human final Score: ${humanScore}`);
-        console.log(`Draws total: ${draws}`);
-    } else if (humanScore < computerScore){
-        console.log("Computer won")
-        console.log(`Computer final Score: ${computerScore}`);
-        console.log(`Human final Score: ${humanScore}`);
-        console.log(`Draws total: ${draws}`);
-    } else {
-        console.log("It is a draw")
-        console.log(`Computer final Score: ${computerScore}`);
-        console.log(`Human final Score: ${humanScore}`);
-        console.log(`Draws total: ${draws}`);
-    }
+//compare user choice against computer choice
+function compareChoices() {
+   if (user == computer) {
+        currentMatch.innerText = "It is a draw!"
+   } else if (computer == "Rock" && user == "Paper") {
+        currentMatch.innerText = "User wins";
+        playerScore.innerText = playerSc += 1;
+   } else if (computer == "Rock" && user == "Scissors") {
+        currentMatch.innerText = "Comp wins";
+        computerScore.innerText = computerSc += 1;
+   } else if (computer == "Paper" && user == "Scissors") {
+        currentMatch.innerText = "User wins";
+        playerScore.innerText = playerSc += 1;
+   } else if (computer == "Paper" && user == "Rock") {
+        currentMatch.innerText = "Comp wins";
+        computerScore.innerText = computerSc += 1;
+   } else if (computer == "Scissors" && user == "Rock") {
+        currentMatch.innerText = "User wins";
+        playerScore.innerText = playerSc += 1;
+   } else if (computer == "Scissors" && user == "Paper") {
+        currentMatch.innerText = "Comp wins";
+        computerScore.innerText = computerSc += 1;
+   }
 }
-
-//call the playGame function with any given number of rounds and store it into a variable
-let result = playGame(5);
-//console.log(result);

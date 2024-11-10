@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    margin-top: auto;
+    background-color: rgb(75, 75, 139);
+    color: white;
+    padding: 24px;border-radius: 12px;
+
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    
+}
+
+.title {
+    margin: 20px;
+    background-color: rgb(175, 175, 111);
+    color: black;
+    padding: 12px;
+    border-radius: 7px;
+}
+
+.result{
+    display: flex;
+    gap: 7px;
+    background-color: white;
+    padding: 20px;
+    color: black;
+    margin-bottom: 20px;
+    border-radius: 7px;
+}
+
+.current-choices {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 200px;
+    background-color:rgb(138, 120, 120);
+    color: white;
+    margin: 8px;
+    gap: 12px;
+    border-radius: 7px;
+}
+
+.computer-choice {
+    align-content: center;
+    text-align: center;
+    background-color: rgb(67, 67, 126);
+    color: black;
+    height: 20px;
+    width: 100px;
+    margin: 12px;
+    border-radius: 7px;
+}
+
+.user-choice {
+    background-color: rgb(67, 67, 126);
+    align-content: center;
+    text-align: center;
+    color: black;
+    height: 20px;
+    width: 100px;
+    margin: 12px;
+    border-radius: 7px;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background-color: azure;
+    padding: 12px;
+}
+.button {
+    background-color: rgb(66, 148, 103);
+    border-radius: 7px;
+}
+
+.computer {
+    background-color: aqua;
+    padding: 8px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    
+}
+
+.match {
+    background-color: rgb(54, 117, 117);
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.player {
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    background-color: aqua;
+    padding: 8px;
+    border-radius: 7px ;
+}
